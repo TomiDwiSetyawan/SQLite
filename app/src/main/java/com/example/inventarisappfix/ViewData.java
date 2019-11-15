@@ -26,16 +26,16 @@ public class ViewData extends ListActivity implements AdapterView.OnItemLongClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewdata);
         dataSource = new DBDataSource(this);
-// buka kontroller
+        // buka kontroller
         dataSource.open();
-// ambil semua data barang
+        // ambil semua data barang
         values = dataSource.getAllBarang();
-// masukkan data barang ke array adapter
+        // masukkan data barang ke array adapter
         ArrayAdapter<Barang> adapter = new ArrayAdapter<Barang>(this,
                 android.R.layout.simple_list_item_1, values);
-// set adapter pada list
+        // set adapter pada list
         setListAdapter(adapter);
-// mengambil listview untuk diset onItemLongClickListener
+        // mengambil listview untuk diset onItemLongClickListener
         ListView lv = (ListView) findViewById(android.R.id.list);
         lv.setOnItemLongClickListener(this);
     }
@@ -43,7 +43,7 @@ public class ViewData extends ListActivity implements AdapterView.OnItemLongClic
     @Override
     public boolean onItemLongClick(final AdapterView<?> adapter, View v, int pos,
                                    final long id) {
-//tampilkan alert dialog
+        //tampilkan alert dialog
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_view);
         dialog.setTitle("Pilih Aksi");
@@ -51,25 +51,25 @@ public class ViewData extends ListActivity implements AdapterView.OnItemLongClic
         final Barang b = (Barang) getListAdapter().getItem(pos);
         editButton = (Button) dialog.findViewById(R.id.button_edit_data);
         delButton = (Button) dialog.findViewById(R.id.button_delete_data);
-//apabila tombol edit diklik
+        //apabila tombol edit diklik
         editButton.setOnClickListener(
                 new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v) {
-// TODO Auto-generated method stub
+                // TODO Auto-generated method stub
                         switchToEdit(b.getId());
                         dialog.dismiss();
                     }
                 }
         );
-//apabila tombol delete di klik
+        //apabila tombol delete di klik
         delButton.setOnClickListener(
                 new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v) {
-// Delete barang
+                        // Delete barang
                         dataSource.deleteBarang(b.getId());
                         dialog.dismiss();
                         finish();

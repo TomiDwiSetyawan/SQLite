@@ -26,20 +26,20 @@ public class CreateData extends Activity implements View.OnClickListener {
         edNama = (EditText) findViewById(R.id.nama_barang);
         edHarga = (EditText) findViewById(R.id.harga_barang);
         edMerk = (EditText) findViewById(R.id.merk_barang);
-// instanstiasi kelas DBDataSource
+        // instanstiasi kelas DBDataSource
         dataSource = new DBDataSource(this);
-//membuat sambungan baru ke database
+        //membuat sambungan baru ke database
         dataSource.open();
     }
     //KETIKA Tombol Submit Diklik
     @Override
     public void onClick(View v) {
-// Inisialisasi data barang
+        // Inisialisasi data barang
         String nama = null;
         String merk = null;
         String harga = null;
         @SuppressWarnings("unused")
-//inisialisasi barang baru (masih kosong)
+        //inisialisasi barang baru (masih kosong)
                 Barang barang = null;
         if(edNama.getText()!=null && edMerk.getText()!=null && edHarga.getText()!=null)
         {
@@ -52,9 +52,9 @@ public class CreateData extends Activity implements View.OnClickListener {
         switch(v.getId())
         {
             case R.id.buttom_submit:
-// insert data barang baru
+                // insert data barang baru
                 barang = dataSource.createBarang(nama, merk, harga);
-//konfirmasi kesuksesan
+                //konfirmasi kesuksesan
                 Toast.makeText(this, "masuk Barang\n" +
                         "nama" + barang.getNama_barang() +
                         "merk" + barang.getMerk_barang() +

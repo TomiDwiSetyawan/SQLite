@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_HARGA+ " varchar(50) not null);";
     public DBHelper(Context context) {
         super(context, db_name, null, db_version);
-// Auto generated
+        // Auto generated
     }
     //mengeksekusi perintah SQL di atas untuk membuat tabel database baru
     @Override
